@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti Korupsi Experience</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:radial-gradient(circle at top,#0f172a 0%,#020617 45%,#020617 100%);color:#e2e8f0;scroll-behavior:smooth}
+.container{max-width:1100px;margin:auto;padding:120px 20px 40px}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;width:100%;background:rgba(2,6,23,0.88);backdrop-filter:blur(12px);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;z-index:999;box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+.navbar h2{color:#7dd3fc;letter-spacing:0.12em;text-transform:uppercase;font-size:0.95rem;display:flex;align-items:center;gap:12px}
+.navbar-logo{width:60px;height:60px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(125,211,252,0.3))}
+.nav-links button{margin-left:10px}
+
+/* HERO */
+.hero{height:100vh;background:url('2.jpeg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero h1{position:relative;z-index:1;font-size:clamp(2.75rem,5vw,4.5rem);line-height:1.05;color:#f8fafc;padding:28px 34px;text-shadow:0 18px 30px rgba(0,0,0,0.28);animation:floatText 6s ease-in-out infinite}
+.red-text{color:#ef4444}
+
+@keyframes floatText{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-12px)}
+}
+
+/* CARD */
+.card{background:rgba(15,23,42,0.9);border:1px solid rgba(96,165,250,0.15);padding:24px;border-radius:24px;margin-bottom:24px;transition:transform 0.25s ease,box-shadow 0.25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(15,23,42,0.35)}
+
+.section h2{font-size:1.9rem;margin-bottom:18px;color:#bae6fd}
+.card h3{margin-bottom:12px;color:#c7d2fe}
+.card p{line-height:1.75;color:#cbd5e1}
+
+.card-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.card-buttons button{flex:1;min-width:140px}
+
+/* BUTTON */
+button{padding:12px 22px;border:none;border-radius:999px;background:linear-gradient(135deg,#38bdf8,#818cf8);color:#020617;font-weight:800;cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 15px 30px rgba(56,189,248,0.22)}
+button:hover{transform:translateY(-1px);box-shadow:0 18px 34px rgba(56,189,248,0.28)}
+button:active{transform:scale(0.96);background:linear-gradient(135deg,#38bdf8,#60a5fa)}
+
+.result{margin-top:15px;font-weight:700;color:#f8fafc;padding:16px;border-radius:16px;background:rgba(30,41,59,0.8);border:1px solid rgba(148,163,184,0.18)}
+
+.progress{height:24px;background:rgba(148,163,184,0.15);border-radius:999px;overflow:hidden;margin-top:16px;box-shadow:inset 0 2px 4px rgba(15,23,42,0.35)}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#818cf8);transition:width 0.5s ease}
+
+#scoreText{margin-top:16px;font-weight:800;font-size:1rem;display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;background:rgba(15,23,42,0.95);border:1px solid rgba(56,189,248,0.2);color:#e2e8f0}
+
+/* GRID MEDIA */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.grid img, .grid video{width:100%;border-radius:18px;object-fit:cover}
+
+.section{padding-top:80px}
+
+/* RESPONSIVE BREAKPOINTS */
+/* Tablet & Medium Screens */
+@media(max-width:768px){
+  .container{padding:100px 16px 32px}
+  .navbar{padding:12px 16px}
+  .navbar h2{font-size:0.85rem}
+  .navbar-logo{width:48px;height:48px}
+  .nav-links button{margin-left:6px;padding:10px 16px;font-size:0.9rem}
+  
+  .hero{height:80vh}
+  .hero h1{font-size:clamp(1.75rem,4vw,2.75rem);padding:20px 24px}
+  
+  .section h2{font-size:1.5rem;margin-bottom:14px}
+  .card{padding:18px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+  
+  button{padding:10px 18px;font-size:0.95rem}
+  .result{padding:12px;font-size:0.9rem}
+  #scoreText{padding:12px 16px;font-size:0.9rem}
+}
+
+/* Mobile Screens */
+@media(max-width:600px){
+  *{font-size:14px}
+  .container{padding:90px 12px 24px}
+  .navbar{padding:10px 12px}
+  .navbar h2{font-size:0.75rem;gap:8px}
+  .navbar-logo{width:40px;height:40px}
+  .nav-links{display:flex;flex-wrap:wrap;gap:4px}
+  .nav-links button{width:auto;margin-left:4px;padding:8px 12px;font-size:0.8rem;border-radius:6px}
+  
+  .hero{height:70vh}
+  .hero h1{font-size:clamp(1.5rem,3vw,2rem);padding:16px 20px;line-height:1.2}
+  
+  .section{padding-top:60px}
+  .section h2{font-size:1.25rem;margin-bottom:12px}
+  
+  .card{padding:16px;margin-bottom:16px;border-radius:16px}
+  .card h3{font-size:1rem;margin-bottom:8px}
+  .card p{font-size:0.9rem;line-height:1.6}
+  .card-buttons{flex-direction:column;gap:10px}
+  .card-buttons button{flex:1;min-width:unset}
+  
+  .grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+  .grid img, .grid video{border-radius:12px}
+  
+  button{padding:12px 16px;font-size:0.9rem;border-radius:8px;margin-bottom:0}
+  
+  .result{margin-top:12px;padding:12px;border-radius:12px;font-size:0.85rem}
+  
+  .progress{height:20px;margin-top:12px;border-radius:8px}
+  #scoreText{margin-top:12px;padding:12px 14px;font-size:0.85rem;gap:6px}
+}
+
+/* Small Mobile */
+@media(max-width:375px){
+  .navbar h2{font-size:0.65rem}
+  .navbar-logo{width:36px;height:36px}
+  .nav-links button{padding:6px 10px;font-size:0.75rem}
+  
+  .hero h1{font-size:clamp(1.25rem,2.5vw,1.75rem);padding:14px 16px}
+  
+  .section h2{font-size:1.1rem}
+  .card{padding:14px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+  
+  button{padding:10px 14px;font-size:0.85rem}
+}
+
+/* Extra Large Screens */
+@media(min-width:1200px){
+  .container{max-width:1280px}
+  .navbar{padding:20px 32px}
+  .navbar h2{font-size:1.1rem}
+  .nav-links button{margin-left:16px;padding:12px 24px}
+  
+  .section h2{font-size:2.2rem}
+  .card{padding:28px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<h2><img src="image-removebg-preview.png" alt="Dragon Logo" class="navbar-logo">KEC.NOGOSARI</h2>
+<div class="nav-links">
+<button onclick="scrollToSection('edukasi')">Edukasi</button>
+<button onclick="scrollToSection('media')">Media</button>
+<button onclick="scrollToSection('simulasi')">Simulasi</button>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Pelayanan KTP <span class="red-text">BERSIH</span> Tanpa <span class="red-text">DIBERI</span></h1>
+</div>
+
+<div class="container">
+
+<!-- EDUKASI -->
+<div id="edukasi" class="section">
+<div class="card">
+<h2>Korupsi dalam Pelayanan KTP</h2>
+<p>Kalau KTP bisa dibeli dengan uang, lalu apa bedanya identitas dengan barang dagangan? Nyogok untuk hal kecil hari ini sebenarnya cuma latihan untuk korupsi yang lebih besar besok.
+     Mau cepat memang menggoda, tapi jangan sampai kejujuran ditukar dengan jalan pintas yang merusak sistem. Ingat, sistem rusak bukan hanya karena aturan yang lemah, 
+    tapi karena orang-orang yang memilih untuk menyuap. </p>
+<br>
+<p>Kalau semua orang terus melakukan itu, jangan kaget kalau suatu saat kamu sendiri jadi korban ketidakadilan yang sama.
+     Perubahan tidak datang dari atas saja,
+     tapi dari keputusan sederhana: kamu berani jujur atau tetap ikut arus yang salah.</p>
+</div>
+</div>
+
+<!-- MEDIA -->
+<div id="media" class="section">
+<h2>Edukasi pelayanan KTP</h2>
+<div class="grid">
+<img src="1.jpeg" alt="Pelayanan administratif">
+<img src="3.jpeg" alt="Proses pelayanan KTP">
+<img src="4.jpeg" alt="Dokumen identitas">
+<img src="genz.png" alt="Antrian kantor kecamatan">
+</div>
+</div>
+
+<!-- SIMULASI -->
+<div id="simulasi" class="section">
+<h2> Simulasi Dilema</h2>
+
+<div class="card">
+<h3>Situasi 1: Permintaan Percepatan</h3>
+<p>Pemohon KTP menawarkan uang untuk mempercepat proses. Petugas diminta membantu.</p>
+<div class="card-buttons">
+<button onclick="pilih(0,10,'❌ Ambil uang, percepat proses')">Terima Tawaran</button>
+<button onclick="pilih(0,100,'✅ Tolak dan proses normal')">Proses Standar</button>
+</div>
+<div class="result" id="r0"></div>
+</div>
+
+<div class="card">
+<h3>Situasi 2: Manipulasi Data</h3>
+<p>Pemohon minta umur dicatat lebih muda untuk persyaratan kerja. Atasan menyarankan untuk membantu "sekedar data".</p>
+<div class="card-buttons">
+<button onclick="pilih(1,10,'❌ Data bohong, dokumen tidak valid')">Ubah Data</button>
+<button onclick="pilih(1,100,'✅ Data akurat, dokumen sah')">Jujur Penuh</button>
+</div>
+<div class="result" id="r1"></div>
+</div>
+
+<div class="card">
+<h3>Situasi 3: Duplikasi KTP</h3>
+<p>Ditekan untuk membuat KTP ganda untuk orang yang sama dengan identitas berbeda. Janji komisi besar jika mau.</p>
+<div class="card-buttons">
+<button onclick="pilih(2,10,'❌ Sistem corrupt, dokumen palsu')">Setuju</button>
+<button onclick="pilih(2,100,'✅ Integritas nomor pilihan')">Lapor Atasan</button>
+</div>
+<div class="result" id="r2"></div>
+</div>
+
+<div class="card">
+<h3>Level Integritas</h3>
+<div class="progress">
+<div class="progress-bar" id="bar"></div>
+</div>
+<p id="scoreText"></p>
+</div>
+
+</div>
+
+<!-- LINK IMPLISIT -->
+<div class="section">
+  <div class="card">
+    <h2>Pelajari Lebih Lanjut</h2>
+    <p>Temukan informasi tambahan melalui sumber-sumber terpercaya berikut ini. Klik untuk membuka pilihan terkait anti korupsi dan pelayanan publik.</p>
+    <div class="card-buttons">
+      <button onclick="window.open('https://newlearning.kpk.go.id/','_blank')">KPK</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+let total = 0;
+let answered = [false,false,false];
+
+function pilih(index, nilai, pesan){
+if(answered[index]) return;
+answered[index] = true;
+
+document.getElementById('r'+index).innerText = pesan;
+total += nilai;
+
+let score = total / 3;
+document.getElementById('bar').style.width = score + '%';
+
+document.getElementById('scoreText').innerText = 'Integritas: ' + Math.round(score) + '%';
+}
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
